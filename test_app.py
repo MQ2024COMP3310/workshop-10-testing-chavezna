@@ -41,7 +41,7 @@ class TestWebApp(unittest.TestCase):
         response = self.client.post('/signup', data = {
             'email' : 'user@test.com',
             'name' : 'test user',
-            'password' : 'test123'
+            'password' : 'test1234'
         }, follow_redirects = True)
         assert response.status_code == 200
         # should redirect to the login page
@@ -50,7 +50,7 @@ class TestWebApp(unittest.TestCase):
         # verify that user can now login
         response = self.client.post('/login', data = {
             'email' : 'user@test.com',
-            'password' : 'test123'
+            'password' : 'test1234'
         }, follow_redirects = True)
         assert response.status_code == 200
         html = response.get_data(as_text = True)
@@ -60,7 +60,7 @@ class TestWebApp(unittest.TestCase):
         response = self.client.post('/signup', data = {
             'email' : 'user@test.com',
             'name' : 'test user',
-            'password' : 'test123'
+            'password' : 'test1234'
         }, follow_redirects = True)
         assert response.status_code == 200
         # should redirect to the login page
@@ -74,7 +74,7 @@ class TestWebApp(unittest.TestCase):
         response = self.client.post('/signup', data = {
             'email' : 'user@test.com"; drop table user; -- ',
             'name' : 'test user',
-            'password' : 'test123'
+            'password' : 'test1234'
         }, follow_redirects = True)
         assert response.status_code == 200 
 
