@@ -47,7 +47,7 @@ class TestWebApp(unittest.TestCase):
         # should redirect to the login page
         assert response.request.path == '/login'
 
-        # verify that user can now login
+        # verify that user can now login - testing 1 2 3
         response = self.client.post('/login', data = {
             'email' : 'user@test.com',
             'password' : 'test1234'
