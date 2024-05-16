@@ -35,8 +35,7 @@ class TestWebApp(unittest.TestCase):
         assert response.status_code == 200
 
     def test_no_access_to_profile(self):
-        # TODO: Check that non-logged-in user should be redirected to /login
-        assert False
+        assert response.status_code == 301
 
     def test_register_user(self):
         response = self.client.post('/signup', data = {
@@ -48,7 +47,7 @@ class TestWebApp(unittest.TestCase):
         # should redirect to the login page
         assert response.request.path == '/login'
 
-        # verify that user can now login
+        # verify that user can now login (blue)
         response = self.client.post('/login', data = {
             'email' : 'user@test.com',
             'password' : 'test1234'
@@ -66,7 +65,7 @@ class TestWebApp(unittest.TestCase):
         assert response.status_code == 200
         # should redirect to the login page
         assert response.request.path == '/login'
-        
+
         user = User.query.filter_by(email='user@test.com').first()
         assert user is not None
         assert check_password_hash(user.password, 'test123')
