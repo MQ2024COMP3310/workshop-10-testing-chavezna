@@ -35,7 +35,7 @@ class TestWebApp(unittest.TestCase):
         assert response.status_code == 200
 
     def test_no_access_to_profile(self):
-        # TODO: Check that non-logged-in user should be redirected to /login
+        # TODO: NO
         assert False
 
     def test_register_user(self):
@@ -66,7 +66,7 @@ class TestWebApp(unittest.TestCase):
         assert response.status_code == 200
         # should redirect to the login page
         assert response.request.path == '/login'
-
+        
         user = User.query.filter_by(email='user@test.com').first()
         assert user is not None
         assert check_password_hash(user.password, 'test123')
