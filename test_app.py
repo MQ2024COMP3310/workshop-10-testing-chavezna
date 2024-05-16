@@ -63,7 +63,7 @@ class TestWebApp(unittest.TestCase):
             'password' : 'test1234'
         }, follow_redirects = True)
         assert response.status_code == 200
-        # should redirect to the login page
+        # should redirect to the login page test AGHHHHH
         assert response.request.path == '/login'
 
         user = User.query.filter_by(email='user@test.com').first()
